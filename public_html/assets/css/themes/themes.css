@@ -1,0 +1,210 @@
+/* Sistema de detecção automática de tema */
+:root {
+  /* Cores tema claro */
+  --primary-color: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #dbeafe;
+  --secondary-color: #10b981;
+  --accent-color: #f97316;
+  
+  /* Cores de texto e fundos (claro) */
+  --text-color: #1f2937;
+  --text-secondary: #4b5563;
+  --text-light: #6b7280;
+  --text-inverted: #ffffff;
+  --bg-light: #f9fafb;
+  --bg-white: #ffffff;
+  --bg-card: #ffffff;
+  
+  /* Cores de feedback */
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #3b82f6;
+  
+  /* Cores de bordas e sombras */
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Gráficos e dados */
+  --chart-line-1: #3b82f6;
+  --chart-line-2: #10b981;
+  --chart-line-3: #f97316;
+  --chart-bg-1: rgba(59, 130, 246, 0.1);
+  --chart-bg-2: rgba(16, 185, 129, 0.1);
+  --chart-bg-3: rgba(249, 115, 22, 0.1);
+  
+  /* Opacidades */
+  --opacity-hover: 0.8;
+  --opacity-disabled: 0.5;
+}
+
+/* Tema escuro automático baseado nas preferências do sistema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Cores tema escuro */
+    --text-color: #f9fafb;
+    --text-secondary: #e5e7eb;
+    --text-light: #9ca3af;
+    --bg-light: #111827;
+    --bg-white: #1f2937;
+    --bg-card: #1f2937;
+    --border-color: #374151;
+    --primary-light: rgba(59, 130, 246, 0.15);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.16);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Override para classes de tema forçado */
+body.light-theme {
+  /* Cores tema claro */
+  --text-color: #1f2937;
+  --text-secondary: #4b5563;
+  --text-light: #6b7280;
+  --text-inverted: #ffffff;
+  --bg-light: #f9fafb;
+  --bg-white: #ffffff;
+  --bg-card: #ffffff;
+  --border-color: #e5e7eb;
+  --primary-light: rgba(59, 130, 246, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme {
+  /* Cores tema escuro */
+  --text-color: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-light: #9ca3af;
+  --bg-light: #111827;
+  --bg-white: #1f2937;
+  --bg-card: #1f2937;
+  --border-color: #374151;
+  --primary-light: rgba(59, 130, 246, 0.15);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.16);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Transições suaves de tema */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efeitos padrão para todos os elementos interativos */
+a, button, .interactive {
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover, button:hover, .interactive:hover {
+  opacity: var(--opacity-hover);
+}
+
+/* Avatar padrão SVG quando não há foto */
+.default-avatar {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.default-avatar svg {
+  width: 65%;
+  height: 65%;
+}
+
+/* Correção específica para dimensões dos avatares */
+
+/* Avatar no menu de usuário (topo direito) */
+.user-menu-toggle .default-avatar {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+/* Avatar na dropdown do menu de usuário */
+.user-info .default-avatar {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  margin: 0 auto;
+}
+
+/* Avatar no drawer mobile */
+.drawer-user .default-avatar {
+  width: 70px !important;
+  height: 70px !important;
+  min-width: 70px !important;
+  min-height: 70px !important;
+  margin: 0 auto 10px auto;
+}
+
+/* Garantir que as imagens de avatar também tenham dimensões corretas */
+.user-menu-toggle img {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info img {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.drawer-user img {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  min-height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Ajuste para ícones dentro dos avatares */
+.default-avatar [data-icon="user"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Garantir que o SVG dentro do avatar tenha tamanho proporcional */
+.default-avatar [data-icon="user"] svg {
+  width: 60%;
+  height: 60%;
+}
+
+/* Ajustes específicos para botão de tema */
+#darkModeToggle {
+  cursor: pointer;
+}
+
+#darkModeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#darkModeIcon svg {
+  width: 20px;
+  height: 20px;
+}

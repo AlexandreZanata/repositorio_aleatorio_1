@@ -1,0 +1,189 @@
+body.diario-bordo-page {
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.diario-header-simple {
+    background-color: var(--bg-card);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.diario-header-simple h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.diario-bordo-main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.diario-footer-simple {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+/* Estilos Gerais do Container */
+.diario-bordo-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+}
+
+.diario-bordo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.diario-bordo-header .icon-container {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.diario-bordo-header .icon-container svg {
+    width: 32px;
+    height: 32px;
+}
+
+.diario-bordo-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.diario-bordo-header h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+.diario-bordo-header p {
+    color: var(--text-light);
+}
+
+/* Formulários */
+.diario-bordo-form .form-group {
+    margin-bottom: 1.5rem;
+    position: relative; /* Necessário para posicionar a lista de sugestões */
+}
+.diario-bordo-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.diario-bordo-form .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+}
+.diario-bordo-form .form-control:read-only {
+    background-color: #e9ecef; /* Cor de fundo para campos apenas de leitura */
+}
+
+/* Caixa de Informações do Veículo */
+.vehicle-info-box {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Botões */
+.btn-block {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.btn-danger { background-color: var(--danger-color); }
+.btn-secondary { background-color: var(--text-light); color: var(--text-color); }
+
+/* --- NOVOS ESTILOS PARA SUGESTÃO DE VEÍCULOS --- */
+#prefix-suggestions {
+    display: none; /* Começa escondido */
+    position: absolute;
+    top: 100%; /* Posiciona logo abaixo do campo de input */
+    left: 0;
+    right: 0;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    z-index: 1000;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-sm);
+}
+#prefix-suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#prefix-suggestions li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+}
+#prefix-suggestions li:last-child {
+    border-bottom: none;
+}
+#prefix-suggestions li:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+/* Checklist */
+.checklist-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-label { font-weight: 500; margin-bottom: 0.5rem; }
+.checklist-options { display: flex; gap: 0.5rem; }
+.radio-option { padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.radio-option input { display: none; }
+.radio-option.ok { background-color: #d4edda; color: #155724; }
+.radio-option.attention { background-color: #fff3cd; color: #856404; }
+.radio-option.problem { background-color: #f8d7da; color: #721c24; }
+.radio-option.checked.ok { border-color: #28a745; }
+.radio-option.checked.attention { border-color: #ffc107; }
+.radio-option.checked.problem { border-color: #dc3545; }
+.notes-container { margin-top: 1rem; width: 100%; }
+
+/* Ações do Formulário (botões Voltar/Avançar) */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
